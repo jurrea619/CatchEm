@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/clear"
+    tools:context="cs175.myapp.gamePortrait"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/scoreLabel"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Score : 300"
+        android:textSize="18sp"
+        android:paddingLeft="10dp"
+        android:gravity="center_vertical"
+        />
+
+    <FrameLayout
+        android:id="@+id/frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/orange"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/orange"/>
+
+        <ImageView
+            android:id="@+id/green"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/green"/>
+
+        <ImageView
+            android:id="@+id/spike1"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/spike"/>
+
+        <ImageView
+            android:id="@+id/spike2"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/spike"/>
+
+        <ImageView
+            android:id="@+id/bonus"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:src="@drawable/bonus"/>
+
+        <ImageView
+            android:id="@+id/catcherUp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/catcher_up"
+            android:layout_gravity="bottom|center_horizontal" />
+
+        <TextView
+            android:id="@+id/startLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tap to Start"
+            android:textSize="30sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="90dp"
+            android:textStyle="normal|bold" />
+
+        <TextView
+            android:id="@+id/landscapeInstructions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tilt screen left/right to control your catcher"
+            android:textSize="12sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="140dp"/>
+
+    </FrameLayout>
+</LinearLayout>
