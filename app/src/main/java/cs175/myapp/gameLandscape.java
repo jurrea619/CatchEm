@@ -21,6 +21,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -28,6 +30,13 @@ import static cs175.myapp.R.id.catcher;
 import static cs175.myapp.R.id.catcherUp;
 import static cs175.myapp.R.id.frame;
 
+/*
+Landscape mode requires the user to tilt the screen
+for player movement
+
+Using basic game format from portrait mode, I created the landscape version with similar features but
+added functionality from the accelerometer as well as other features
+ */
 public class gameLandscape extends AppCompatActivity implements SensorEventListener {
 
     private static final String TAG = gameLandscape.class.getSimpleName();
@@ -35,6 +44,7 @@ public class gameLandscape extends AppCompatActivity implements SensorEventListe
     // labels and pickups
     private TextView scoreLabel;
     private TextView startLabel;
+    private TextView rotationLabel;
     private TextView landscapeInstructions;
     private ImageView catcherUp;
     private ImageView orange;
@@ -98,6 +108,7 @@ public class gameLandscape extends AppCompatActivity implements SensorEventListe
 
         scoreLabel = (TextView) findViewById(R.id.scoreLabel);
         startLabel = (TextView) findViewById(R.id.startLabel);
+        rotationLabel = (TextView) findViewById(R.id.rotationLabel);
         landscapeInstructions = (TextView) findViewById(R.id.landscapeInstructions);
         catcherUp = (ImageView) findViewById(R.id.catcherUp);
         orange = (ImageView) findViewById(R.id.orange);
@@ -147,12 +158,14 @@ public class gameLandscape extends AppCompatActivity implements SensorEventListe
 
     }
 
+    //attach listener when user returns
     @Override
     protected void onResume(){
         super.onPause();
         mySensors.registerListener(this, myAccelerometer, SensorManager.SENSOR_DELAY_NORMAL);
     }
 
+    //detach listener when screen is not visible to user
     @Override
     protected void onPause(){
         super.onPause();
@@ -276,7 +289,7 @@ public class gameLandscape extends AppCompatActivity implements SensorEventListe
 
 
 
-
+    // check user touch on screen
     public boolean onTouchEvent(MotionEvent me){
         //user hasn't started game
         if(!checkGameStart){
@@ -299,6 +312,7 @@ public class gameLandscape extends AppCompatActivity implements SensorEventListe
 
             //remove start label
             startLabel.setVisibility(View.GONE);
+            rotationLabel.setVisibility(View.GONE);
             landscapeInstructions.setVisibility(View.GONE);
 
             //update position every 20 millis
@@ -331,6 +345,8 @@ public class gameLandscape extends AppCompatActivity implements SensorEventListe
         return super.dispatchKeyEvent(event);
     }
 
+
+    // grabs value from accelerometer to change player position
     @Override
     public void onSensorChanged(SensorEvent sensorEvent) {
 

@@ -10,6 +10,9 @@ import android.os.Build;
  * Created by joshua on 12/9/16.
  */
 
+/*
+Sound player class to handle gameplay sounds like ball catching and hit collision
+ */
 public class SoundPlayer {
 
     private AudioAttributes audioAttributes;

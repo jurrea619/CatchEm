@@ -12,6 +12,9 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/*
+Results screen that shows player's score from game that finished, along with all time high score
+ */
 public class result extends AppCompatActivity {
 
     @Override
@@ -54,14 +57,17 @@ public class result extends AppCompatActivity {
         }
     }
 
+    //restart landscape version
     public void tryAgainLand(View view){
         startActivity(new Intent(getApplicationContext(), gameLandscape.class));
     }
 
+    // restart portrait version
     public void tryAgainPort(View view){
         startActivity(new Intent(getApplicationContext(), gamePortrait.class));
     }
 
+    //return to main menu
     public void mainMenu(View view){
         startActivity(new Intent(getApplicationContext(), Start.class));
     }

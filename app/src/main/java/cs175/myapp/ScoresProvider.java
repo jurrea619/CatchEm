@@ -24,6 +24,9 @@ import static android.provider.CalendarContract.CalendarCache.URI;
  * Created by joshua on 12/9/16.
  */
 
+/*
+Content provider for database storing all scores recorded. Used to pull highest scores
+ */
 public class ScoresProvider extends ContentProvider {
 
     private SQLiteDatabase db;

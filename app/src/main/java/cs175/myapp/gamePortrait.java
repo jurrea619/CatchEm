@@ -22,13 +22,17 @@ import java.util.TimerTask;
 
 /*
 Portrait mode of game, where user's avatar is placed on left margin of screen. Objects will fly at user from the right side of screen.
-User controls avatar through touching/holding screen and releasing
+User controls avatar through touching/holding screen and releasing in Portrait mode.
+
+Gameplay code was enhanced from a basic tutorial found online at http://codingwithsara.com for portrait mode. From the basics, features were
+included to enhance user experience.
  */
 public class gamePortrait extends AppCompatActivity {
 
     // labels and pickups
     private TextView scoreLabel;
     private TextView startLabel;
+    private TextView rotationLabel;
     private TextView portraitInstructions;
     private ImageView catcher;
     private ImageView orange;
@@ -78,12 +82,16 @@ public class gamePortrait extends AppCompatActivity {
     private boolean checkGameStart = false;
 
     @Override
+    /*
+    Set all variables and grab all elements from layout
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_portrait);
 
         scoreLabel = (TextView) findViewById(R.id.scoreLabel);
         startLabel = (TextView) findViewById(R.id.startLabel);
+        rotationLabel = (TextView) findViewById(R.id.rotationLabel);
         portraitInstructions = (TextView) findViewById(R.id.portraitInstructions);
         catcher = (ImageView) findViewById(R.id.catcher);
         orange = (ImageView) findViewById(R.id.orange);
@@ -140,6 +148,7 @@ public class gamePortrait extends AppCompatActivity {
         startLabel.setVisibility(TextView.VISIBLE);
         */
     }
+
 
     // constant update of game
     public void changePos(){
@@ -214,6 +223,7 @@ public class gamePortrait extends AppCompatActivity {
         scoreLabel.setText("Score : " + player.getScore());
     }
 
+    //constant check for collisions and points
     public void hitCheck(){
         //check is center of ball is in catcher
         //orange
@@ -269,6 +279,7 @@ public class gamePortrait extends AppCompatActivity {
 
             sound.playGameOverSound();
 
+            /*
             //add score to database
             ContentValues contentValues = new ContentValues();
 
@@ -278,7 +289,7 @@ public class gamePortrait extends AppCompatActivity {
             Uri _uri = getContentResolver().insert(ScoresProvider.URI, contentValues);
 
             Toast.makeText(getApplicationContext(), _uri.toString(), Toast.LENGTH_LONG).show();
-
+            */
             //show result
             Intent intent = new Intent(getApplicationContext(), result.class);
             intent.putExtra("Score", player.getScore());
@@ -287,6 +298,7 @@ public class gamePortrait extends AppCompatActivity {
 
     }
 
+    //activated whenever user touches screen
     public boolean onTouchEvent(MotionEvent me){
         //user hasn't started game
         if(!checkGameStart){
@@ -303,6 +315,7 @@ public class gamePortrait extends AppCompatActivity {
 
             //remove start label
             startLabel.setVisibility(View.GONE);
+            rotationLabel.setVisibility(View.GONE);
             portraitInstructions.setVisibility(View.GONE);
 
             //activate game timer

@@ -4,6 +4,9 @@ package cs175.myapp;
  * Created by joshua on 12/9/16.
  */
 
+/*
+Player object to be used for every new game played.
+ */
 public class Player {
 
     private String name;

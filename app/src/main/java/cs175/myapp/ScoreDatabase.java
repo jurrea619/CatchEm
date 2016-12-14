@@ -10,6 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class ScoreDatabase extends SQLiteOpenHelper {
 
+    //set database values
     private static final int DB_VERSION = 1;
     private static final String DB_NAME = "Scores";
     public static final String TABLE_SCORES = "scores";
@@ -23,7 +24,7 @@ public class ScoreDatabase extends SQLiteOpenHelper {
 
     private static final String DB_SCHEMA = CREATE_TABLE_SCORES;
 
-
+    //constructor
     public ScoreDatabase(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
     }
