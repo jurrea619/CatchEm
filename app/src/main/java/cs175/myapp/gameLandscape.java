@@ -44,7 +44,6 @@ public class gameLandscape extends AppCompatActivity implements SensorEventListe
     // labels and pickups
     private TextView scoreLabel;
     private TextView startLabel;
-    private TextView rotationLabel;
     private TextView landscapeInstructions;
     private ImageView catcherUp;
     private ImageView orange;
@@ -108,7 +107,6 @@ public class gameLandscape extends AppCompatActivity implements SensorEventListe
 
         scoreLabel = (TextView) findViewById(R.id.scoreLabel);
         startLabel = (TextView) findViewById(R.id.startLabel);
-        rotationLabel = (TextView) findViewById(R.id.rotationLabel);
         landscapeInstructions = (TextView) findViewById(R.id.landscapeInstructions);
         catcherUp = (ImageView) findViewById(R.id.catcherUp);
         orange = (ImageView) findViewById(R.id.orange);
@@ -312,7 +310,6 @@ public class gameLandscape extends AppCompatActivity implements SensorEventListe
 
             //remove start label
             startLabel.setVisibility(View.GONE);
-            rotationLabel.setVisibility(View.GONE);
             landscapeInstructions.setVisibility(View.GONE);
 
             //update position every 20 millis

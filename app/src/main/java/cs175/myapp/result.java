@@ -44,6 +44,7 @@ public class result extends AppCompatActivity {
             highScoreLabel.setText("High Score : " + highScore);
         }
 
+        /*
         //retrieve top 5 records
         String URL = "content://cs175.myapp.ScoresProvider/scores";
         Uri scores  = Uri.parse(URL);
@@ -55,6 +56,7 @@ public class result extends AppCompatActivity {
                         + c.getString(c.getColumnIndex(ScoresProvider.COL_SCORE)), Toast.LENGTH_LONG).show();
             } while(c.moveToNext());
         }
+        */
     }
 
     //restart landscape version

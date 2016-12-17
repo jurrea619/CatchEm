@@ -32,7 +32,6 @@ public class gamePortrait extends AppCompatActivity {
     // labels and pickups
     private TextView scoreLabel;
     private TextView startLabel;
-    private TextView rotationLabel;
     private TextView portraitInstructions;
     private ImageView catcher;
     private ImageView orange;
@@ -91,7 +90,6 @@ public class gamePortrait extends AppCompatActivity {
 
         scoreLabel = (TextView) findViewById(R.id.scoreLabel);
         startLabel = (TextView) findViewById(R.id.startLabel);
-        rotationLabel = (TextView) findViewById(R.id.rotationLabel);
         portraitInstructions = (TextView) findViewById(R.id.portraitInstructions);
         catcher = (ImageView) findViewById(R.id.catcher);
         orange = (ImageView) findViewById(R.id.orange);
@@ -315,7 +313,6 @@ public class gamePortrait extends AppCompatActivity {
 
             //remove start label
             startLabel.setVisibility(View.GONE);
-            rotationLabel.setVisibility(View.GONE);
             portraitInstructions.setVisibility(View.GONE);
 
             //activate game timer
